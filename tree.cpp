@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 using namespace ::std ; 
 struct node 
 {
@@ -6,13 +7,6 @@ struct node
     struct node *left;
     struct node *right;
 };
-struct queue
-{
-    struct node *p;
-    struct queue *next;
-};
-struct queue *head=new(struct queue);
-struct queue *last=new(struct queue); 
 struct node *newnode(int val)
 {
     struct node *t=new(struct node);
@@ -105,46 +99,21 @@ struct node *ceil(struct node *t,int val)
            return t;
     }
 }
-
-struct queue *newelement(struct node *te)
+void bft(struct node *root)
 {
-    struct queue *t=new (struct queue);
-    t->p=te;
-    t->next=NULL;
-    return t;
-}
-struct queue *enque(struct queue *last,struct node *te)
-{
-    struct queue *temp=newelement(te);
-    if(last==NULL)return temp;
-    else
+    queue <node *>q;
+    q.push(root);
+    while(q.size()!=0)
     {
-        last->next = temp;
-        return temp;
+        struct node *t=q.front();
+        cout<<t->data<<" ";
+        if(t->left!=NULL)
+        q.push(t->left);
+        if(t->right!=NULL)
+        q.push(t->right);
+        q.pop();
     }
-}
-struct queue *deque(struct queue *head)
-{
-    head=head->next;
-    return head;
-}
 
-void printing(struct queue *t)
-{
-    cout<<t->p->data<<" ";
-}
-
- void bft(struct queue *head)
-{   
-    while(head!=NULL)
-    {
-        printing(head);
-        if(head->p->left!=NULL)
-            last=enque(last,head->p->left);
-        if(head->p->right!=NULL)
-            last=enque(last,head->p->right);
-        head=deque(head);
-    }
 }
  
 int main()
@@ -163,10 +132,8 @@ int main()
     cout<<endl;
     cout<<floor(root,100)->data;  
     cout<<ceil(root,20)->data;    
-    head=last=enque(head,root);
-    printing(head);
     cout<<endl;    
-    bft(head); 
+    bft(root); 
     cout<<endl;
     return 0;
 }
