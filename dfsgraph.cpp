@@ -36,7 +36,7 @@ void driverdfs(int n)
     int i;
     bool visited[n];
     for(i=1;i<n+1;i++)
-    {   nd[i].val=i;
+    { 
         visited[i]=false;
     
     }
@@ -63,7 +63,7 @@ int main ()
    }
   
    for(i=0;i<n;i++)
-   {
+   {   nd[i+1].val=i+1;
        if(nd[i].val==0)continue;
        cout<<"Vertex :"<<nd[i].val<<" adjacented by : ";
        vector <int>::iterator j;
