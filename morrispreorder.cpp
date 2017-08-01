@@ -49,13 +49,13 @@ void morris(struct node *root)
            if(predessor->right==NULL)
            {
                predessor->right=current;
-              // cout<<current->data<<" ";     
+               cout<<current->data<<" ";     
                current=current->left;
            }
            else
            {
                predessor->right=NULL;
-               cout<<current->data<<" ";
+              // cout<<current->data<<" ";
                current=current->right;
            }
        }
