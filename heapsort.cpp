@@ -31,6 +31,9 @@ int main ()
         cout<<arr[i]<<" ";
     cout<<endl;
     for(i=size/2;i>=1;i--)sink(arr,i);// heap ordering
+      for(i=1;i<=10;i++)
+        cout<<arr[i]<<" ";  
+    cout<<endl;        
     while(size)
     {
         int t= arr[1];
