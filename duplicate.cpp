@@ -3,7 +3,7 @@
 using namespace :: std;
 int main ()
 {
-    int arr[]={2,2,1,1,3,1,3,2};
+    int arr[]={2,4,1,7,4,8,3,4};
     int i=0;
     int lt = 0, gt = 7;
     while(i<gt)
