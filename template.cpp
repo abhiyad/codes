@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include <unordered_map>
+#include <boost/functional/hash.hpp>
 using namespace std;  
 #define ll long long int
 #define ull unsigned long long int
@@ -22,5 +23,16 @@ using namespace std;
 #define vpresent(v,x) ((v).find(x) != (v).end())
 #define present(v,x) (find(all(v),x) != (v).end())  
 typedef pair<int,int> pii;
-typedef pair<pii,pii> 
+typedef pair<pii,pii> ppi;    
 #define inf 2000000000
+struct pair_hash {
+    template <class T1, class T2>
+    std::size_t operator () (const std::pair<T1,T2> &p) const {
+        auto h1 = std::hash<T1>{}(p.first);
+        auto h2 = std::hash<T2>{}(p.second);
+        size_t seed=0;
+        boost::hash_combine(seed,h1);
+        boost::hash_combine(seed,h2);
+        return h1 ^ h2;  
+    }
+};
