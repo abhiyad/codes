@@ -22,55 +22,11 @@ using namespace std;
 typedef pair<int,int> pii;
 typedef pair<pii,pii> ppi;    
 #define inf 2000000000
-
-
 int main ()
 {
-	string txt,pat;
-	cin>>pat;
-	int n=pat.length();
-	int lps[n]={0};
-	int len=0,i=1;
-	while(i<n)
-	{
-		if(pat[i]==pat[len])
-			{
-				len++;
-				lps[i]=len;
-				i++;
-			}
-		else
-			{
-				if (len==0)
-					{
-						lps[i]=0;
-						i++;
-					}
-				else
-						len=lps[len-1];
-			}
-	}
-	cin>>txt;
-	int m=txt.length();
-	int j=0;i=0;
-	while(i<m)
-	{
-		//cout<<i<<" "<<j<<endl;
-		if(pat[j]==txt[i])
-		{
-			i++;j++;
-		}
-		if(j==n)
-		{
-			cout<<"found at "<<i;
-			j=lps[m-1];
-		}
-		if(pat[j]!=txt[i])
-		{
-			if(j!=0)j=lps[j-1];
-			else
-				i++;
-		}
-	}
+	int n;cin>>n;
+	vc(int)arr;
+	fr(i,n){int m;cin>>m;arr.pb(m);}
+	cout<<(upper_bound(all(arr),7) - arr.begin());
 	return 0;
 }

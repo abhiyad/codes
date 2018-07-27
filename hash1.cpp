@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <unordered_map>
 using namespace std;  
 #define ll long long int
 #define ull unsigned long long int
@@ -13,6 +14,7 @@ using namespace std;
 #define init(mem,v) memset(mem,v,sizeof(mem))  
 #define sz(v) ((v).size())
 #define vc(r) vector< r >
+#define hash(a,b) unordered_map< a , b >
 #define mk(a,b) make_pair(a,b)
 #define pb push_back
 #define all(v) (v).begin(),(v).end()
@@ -22,55 +24,13 @@ using namespace std;
 typedef pair<int,int> pii;
 typedef pair<pii,pii> ppi;    
 #define inf 2000000000
-
-
 int main ()
 {
-	string txt,pat;
-	cin>>pat;
-	int n=pat.length();
-	int lps[n]={0};
-	int len=0,i=1;
-	while(i<n)
-	{
-		if(pat[i]==pat[len])
-			{
-				len++;
-				lps[i]=len;
-				i++;
-			}
-		else
-			{
-				if (len==0)
-					{
-						lps[i]=0;
-						i++;
-					}
-				else
-						len=lps[len-1];
-			}
-	}
-	cin>>txt;
-	int m=txt.length();
-	int j=0;i=0;
-	while(i<m)
-	{
-		//cout<<i<<" "<<j<<endl;
-		if(pat[j]==txt[i])
-		{
-			i++;j++;
-		}
-		if(j==n)
-		{
-			cout<<"found at "<<i;
-			j=lps[m-1];
-		}
-		if(pat[j]!=txt[i])
-		{
-			if(j!=0)j=lps[j-1];
-			else
-				i++;
-		}
-	}
+	hash(int,int)h;int n;cin>>n;
+	int arr[n];
+	int m=0;
+	fr(i,n){cin>>arr[i];h[arr[i]]++;m=max(m,h[arr[i]]);}
+	cout<<m<<endl;
 	return 0;
+
 }
