@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <unordered_map>
 using namespace std;  
 #define ll long long int
 #define ull unsigned long long int
@@ -13,6 +14,7 @@ using namespace std;
 #define init(mem,v) memset(mem,v,sizeof(mem))  
 #define sz(v) ((v).size())
 #define vc(r) vector< r >
+#define hash(a,b) unordered_map< a , b >
 #define mk(a,b) make_pair(a,b)
 #define pb push_back
 #define all(v) (v).begin(),(v).end()
@@ -20,5 +22,5 @@ using namespace std;
 #define vpresent(v,x) ((v).find(x) != (v).end())
 #define present(v,x) (find(all(v),x) != (v).end())  
 typedef pair<int,int> pii;
-typedef pair<pii,pii> ppi;    
+typedef pair<pii,pii> 
 #define inf 2000000000
