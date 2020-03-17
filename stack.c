@@ -57,7 +57,7 @@ int main ()
 	else{
 		head=pop(head);
 	}
-	i++;
+		i++;
 	}
 	printing(head);
 	return 0;
